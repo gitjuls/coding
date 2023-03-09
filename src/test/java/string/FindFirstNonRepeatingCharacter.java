@@ -7,11 +7,14 @@ public class FindFirstNonRepeatingCharacter {
         String str = "aaabccc";
         char[] arr = str.toCharArray();
 
-        HashMap<Character, Integer> map = new HashMap<>();
         //find unique character
+        //count each character
+        //print first non repeating character
+
+        HashMap<Character, Integer> map = new HashMap<>();
         HashSet<Character> set = new HashSet<>();
         
-        for (int i=0; i<arr.length; i++){
+        for (int i=0; i<arr.length; i++){//O(n)
             char ch = str.charAt(i);
             if(map.containsKey(ch)){
                 map.put(ch, map.get(ch)+1);
@@ -23,7 +26,7 @@ public class FindFirstNonRepeatingCharacter {
 
         char res = '_';
         Iterator itr = set.iterator();
-        while (itr.hasNext()) {
+        while (itr.hasNext()) { //O(n)
             char ch = (char) itr.next();
             if(map.get(ch)==1){
                 res = ch;
