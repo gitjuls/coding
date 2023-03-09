@@ -7,7 +7,7 @@ public class FindFirstNonRepeatingCharacter {
         String str = "aaabccc";
         char[] arr = str.toCharArray();
 
-        //find unique character
+        //find unique characters
         //count each character
         //print first non repeating character
 
