@@ -48,10 +48,8 @@ public class FindLongestPolidromicSubstring {
             }
         }while(left>=0);
 
-        String output = "";
-        for(int i=res[0]; i<=res[1]; i++){
-            output+=str.charAt(i);
-        }
+        String output = str.substring(res[0], res[1]+1);
         System.out.println(output);
+
     }
 }
