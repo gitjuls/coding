@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FindLongestPolidromnicSubstring {
+public class FindLongestPolidromicSubstring {
     //Given a string s, return the longest
     //palindromic substring in s.
     //Example 1:
