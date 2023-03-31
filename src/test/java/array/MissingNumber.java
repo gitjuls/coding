@@ -31,8 +31,8 @@ public class MissingNumber {
 
         int res = 0;
         for(int i=0, e=1; e<arr.length; i++, e++){ //O(n)
-            boolean isFalse = arr[e] - arr[i] != 1;
-            if(isFalse){
+            boolean isTrue = arr[e] - arr[i] != 1;
+            if(isTrue){
                res = arr[i]+1;       //save missing num
             }else{
                 res = arr[e]+1;     //if no missing num => save last num + 1
