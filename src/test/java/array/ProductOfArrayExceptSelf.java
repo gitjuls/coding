@@ -40,8 +40,8 @@ public class ProductOfArrayExceptSelf {
             a=1;
         }
 
-        for(int i=0; i<=output.length-1; i++){//O(n)
-            System.out.println(output[i]);
+        for(int num:output){//O(n)
+            System.out.println(num);
         }
     }
 
