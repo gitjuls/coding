@@ -18,16 +18,12 @@ public class LargestUniqueNumber {
             }
         }
 
-        List<Integer> list = new ArrayList<>();
+        int max = -1;
         for(int i=0; i<=nums.length-1;i++){ //O(n)
             if(map.get(nums[i]) == 1){
-                list.add(nums[i]);
+                max = Math.max(max, nums[i]);
             }
         }
-
-        if(list.size()>0) { //O(n)
-            System.out.println(list.stream().max(Comparator.naturalOrder()).get());
-        }else System.out.println(-1);
-
+        System.out.println(max);
     }
 }
