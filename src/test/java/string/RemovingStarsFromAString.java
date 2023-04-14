@@ -22,17 +22,17 @@ public class RemovingStarsFromAString {
     //Explanation: The entire string is removed, so we return an empty string.
 
     public static void main(String[] args) {
-        String str = "leet**cod*e"; //"erase*****";
+        String str = "erase*****";//"leet**cod*e";
         StringBuilder sb = new StringBuilder(str);
 
         do{
             for (int i = 0, j = 1; j <= sb.length()-1; i++, j++) {
                if (sb.charAt(i) != '*' && sb.charAt(j) == '*') {
-                        sb.deleteCharAt(j);
-                        sb.deleteCharAt(i);
+                   sb.deleteCharAt(j);
+                   sb.deleteCharAt(i);
                }
             }
-        }while(sb.chars().anyMatch(ch -> ch == '*'));
+        }while(sb.chars().anyMatch(ch -> ch == '*')); //Runtime: 2 ms
         System.out.println(sb);
     }
 }
