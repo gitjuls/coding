@@ -20,14 +20,14 @@ public class ReverseVowelsOfAString {
 
         //find indexes
         List<Integer> index = new ArrayList<>();
-        for(int i=0; i<=str.length()-1;i++){
+        for(int i=0; i<=str.length()-1;i++){ //O(n)
             if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u'){
                 index.add(i);
             }
         }
 
         //swap indexes
-        for(int i=0, j=1; j<=index.size()-1; i++, j++){
+        for(int i=0, j=1; j<=index.size()-1; i++, j++){//O(n)
             int temp = index.get(i);
             index.set(i, index.get(j));
             index.set(j, temp);
@@ -35,7 +35,7 @@ public class ReverseVowelsOfAString {
 
         //swap vowels
         StringBuilder sb = new StringBuilder(str);
-        for(int i=0, j=1; j<=index.size()-1; i++, j++){
+        for(int i=0, j=1; j<=index.size()-1; i++, j++){//O(n)
             char temp = str.charAt(index.get(i));
             char temp2 = str.charAt(index.get(j));
             sb.deleteCharAt(index.get(i)).replace(index.get(i),index.get(i), String.valueOf(temp2));
