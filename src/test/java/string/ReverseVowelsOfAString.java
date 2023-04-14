@@ -38,9 +38,9 @@ public class ReverseVowelsOfAString {
         for(int i=0, j=1; j<=index.size()-1; i++, j++){
             char temp = str.charAt(index.get(i));
             char temp2 = str.charAt(index.get(j));
-            sb.delete(index.get(i),index.get(i)+1).replace(index.get(i),index.get(i), String.valueOf(temp2));
-            sb.delete(index.get(j),index.get(j)+1).replace(index.get(j),index.get(j), String.valueOf(temp));
+            sb.deleteCharAt(index.get(i)).replace(index.get(i),index.get(i), String.valueOf(temp2));
+            sb.deleteCharAt(index.get(j)).replace(index.get(j),index.get(j), String.valueOf(temp));
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
