@@ -1,8 +1,6 @@
 package array;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.InputMismatchException;
 
 public class HappyNumber_202 {
     //https://leetcode.com/problems/happy-number/
