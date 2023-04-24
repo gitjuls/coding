@@ -29,8 +29,15 @@ public class FindTheIndexOfTheFirstOccurrenceInString_28 {
         int len = needle.length();
         for(int i=0; i<haystack.length(); i++){
             if((haystack.length()-i) >= len) {
+                //decrease haystack length by i, and verify if haystack length >= len
+                //if 8-0>=3;  8-1>=3; 8-2>=3; ... 8-5>=3 true
+                //if true, verify last occurrence and break;
                 boolean isTrue = haystack.substring(i, len+i).equalsIgnoreCase(needle);
-                if(isTrue){output = i;}
+                //                sadbutsad        0   3+0 sad                sad
+                //                                 1   3+1 adb
+                //                                 2   3+2 dbu
+                if(isTrue){output = i; break;}
+                //find first occurrence and break;
             }
         }
         return output;
