@@ -1,8 +1,5 @@
 package array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 public class MinimumOperationsToMakeTheArrayIncreasing_1827 {
     //You are given an integer array nums (0-indexed). In one operation, you can choose an element of the array and increment it by 1.
     //For example, if nums = [1,2,3], you can choose to increment nums[1] to make nums = [1,3,3].
