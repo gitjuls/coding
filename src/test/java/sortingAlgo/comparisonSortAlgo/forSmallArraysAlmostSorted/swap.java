@@ -1,4 +1,4 @@
-package sortingAlgo;
+package sortingAlgo.comparisonSortAlgo.forSmallArraysAlmostSorted;
 
 public class swap {
 
