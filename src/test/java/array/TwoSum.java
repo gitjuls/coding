@@ -1,9 +1,6 @@
 package array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TwoSum {
     //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -27,19 +24,37 @@ public class TwoSum {
     //Output: [0,1]
 
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
-        int target = 25;
+        int[] nums = {3,2,4};
+        int target = 6;
 
         int[] output = new int[2];
+        output=twoSum(nums, target);
+        Arrays.stream(output).forEach(System.out::println);
+    }
 
-        for(int i=0, e=1; i<=nums.length; i++, e++){//O[n]
-           if(e<nums.length && Integer.sum(nums[i],nums[e]) == target){
-                output[0]=i;
-                output[1]=e;
-                break;
+    public static int[] twoSum(int[] nums, int target) {
+       /* int[] n = new int[2];
+
+        for(int i=0; i< nums.length ; i++){//O(n*m)
+            for(int j=1; j<nums.length; j++){
+                if(nums[i] + nums[j] == target && i!=j){
+                    n[0]=j;
+                    n[1]=i;
+                    break;
+                }
             }
         }
-        Arrays.stream(output).forEach(System.out::println);
+        return n;*/
+
+        int[] n = new int[2];
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=0; i<nums.length; i++){
+            int a = target-nums[i];
+            map.put(i,a);
+        }
+
+        return n;
     }
 
 }
