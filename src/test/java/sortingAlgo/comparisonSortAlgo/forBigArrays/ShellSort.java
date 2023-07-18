@@ -1,4 +1,4 @@
-package sortingAlgo;
+package sortingAlgo.comparisonSortAlgo.forBigArrays;
 
 import java.util.Arrays;
 
