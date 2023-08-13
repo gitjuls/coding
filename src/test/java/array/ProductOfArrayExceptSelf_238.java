@@ -1,5 +1,10 @@
 package array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class ProductOfArrayExceptSelf_238 {
    // https://leetcode.com/problems/product-of-array-except-self/
     //Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
@@ -15,11 +20,53 @@ public class ProductOfArrayExceptSelf_238 {
     //Output: [0,0,9,0,0]
 
     public static void main(String[] args) {
+        int[] nums = {1,2,3,4};
+        int[] res = productExceptSelf(nums);
+        Arrays.stream(res).forEach(System.out::println);
+    }
+
+    public static int[] productExceptSelf(int[] nums) { //1ms 100% beats
+        int[] res = new int[nums.length];
+        res[0]=1;
+        for(int i=1; i<nums.length; i++){
+            res[i]=nums[i-1] * res[i-1];
+        }
+        int r =1;
+        for(int i=nums.length-1; i>=0; i--){
+            res[i] = res[i] * r;
+            r = r * nums[i];
+        }
+        return res;
+    }
+
+    public static int[] productExceptSelf1(int[] nums) {//2ms 68%beats
+        int[] left = new int[nums.length];
+        int[] right = new int[nums.length];
+        int[] res = new int[nums.length];
+
+        left[0]=1;
+        right[nums.length-1] = 1;
+
+        for(int i=1; i<nums.length; i++){
+            left[i]=nums[i-1] * left[i-1];
+        }
+
+        for(int i=nums.length-2; i>=0; i--){
+            right[i] = nums[i+1] * right[i+1];
+        }
+
+        for(int i=0; i<nums.length; i++){
+            res[i]=left[i] * right[i];
+        }
+        return res;
+    }
+
+    /*public static void main(String[] args) {
         int[] nums = {0,0};//{1,2,3,4}; //{-1,1,0,-3,3};
         int[] output = new int[nums.length];
 
         int a=1;
-/*        for(int pointer=0; pointer<=nums.length-1; pointer++){//O[n^2]
+*//*        for(int pointer=0; pointer<=nums.length-1; pointer++){//O[n^2]
             for(int i=0; i<=nums.length-1; i++){
                 //p1
                 //p2
@@ -39,7 +86,7 @@ public class ProductOfArrayExceptSelf_238 {
             }
             output[pointer] = a;
             a=1;
-        }*/
+        }*//*
 
         int pointer = 0;
             for(int i=0; i<=nums.length-1; i++){
@@ -71,5 +118,5 @@ public class ProductOfArrayExceptSelf_238 {
             System.out.println(num);
         }
     }
-
+*/
 }
