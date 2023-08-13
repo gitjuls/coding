@@ -7,7 +7,7 @@ public class MergeSort {
         int[] arr3 = {10,24,76,73,-1,72,1,9};
         int[] res1 = divideMergeSort(arr3);
         int[] res2 = recursionMergeSort(arr3);
-        Arrays.stream(res2).forEach(System.out::println);
+        Arrays.stream(res1).forEach(System.out::println);
     }
 
     public static int[] recursionMergeSort(int[] nums){

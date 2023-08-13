@@ -5,7 +5,7 @@ import java.util.*;
 public class RadixSort {
 
     public static void main(String[] args) {
-        int[] num = {34,22,1,3,3,4565,2323,10,11,4465,5565,99999,111111,34387483,38483748,3748374, 38483749};
+        int[] num = {34,22,1,3,3,4565,2323,10,11,4465,5565,99999,111111,34387483,38483748,3748374, 38483749,-1};
         int[] nums = radixSort(num);
         Arrays.stream(nums).forEach(System.out::println);
     }
