@@ -1,7 +1,6 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 public class ReverseVowelsOfAString_345 {
     //https://leetcode.com/problems/reverse-vowels-of-a-string/
@@ -16,33 +15,43 @@ public class ReverseVowelsOfAString_345 {
     //Input: s = "leetcode"
     //Output: "leotcede"
 
+
     public static void main(String[] args) {
-        String str= "race car";//"hello";//"leetcode";
+        String s ="hello";
+        System.out.println(reverseVowels(s));
+    }
 
-        //find indexes
-        List<Integer> index = new ArrayList<>();
-        for(int i=0; i<=str.length()-1;i++){ //O(n)
-            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u'
-               || str.charAt(i) == 'A' || str.charAt(i) == 'E' || str.charAt(i) == 'I' || str.charAt(i) == 'O' || str.charAt(i) == 'U'){
-                index.add(i);
+    public static String reverseVowels(String s) {
+        HashSet<Character> set = new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        set.add('A');
+        set.add('E');
+        set.add('I');
+        set.add('O');
+        set.add('U');
+        int left = 0;
+        int right = s.length()-1;
+        StringBuilder sb = new StringBuilder(s);
+            while(left<right){
+                if(!set.contains(s.charAt(left))){
+                    left++;
+                }
+                if(!set.contains(s.charAt(right))){
+                    right--;
+                }
+                if(set.contains(s.charAt(left)) && set.contains(s.charAt(right))){
+                    char templ = s.charAt(right);
+                    char tempr = s.charAt(left);
+                    sb.setCharAt(left,templ);
+                    sb.setCharAt(right,tempr);
+                    left++;
+                    right--;
+                }
             }
-        }
-
-        //swap indexes
-        for(int i=0, j=1; j<=index.size()-1; i++, j++){//O(n)
-            int temp = index.get(i);
-            index.set(i, index.get(j));
-            index.set(j, temp);
-        }
-
-        //swap vowels
-        StringBuilder sb = new StringBuilder(str);
-        for(int i=0, j=1; j<=index.size()-1; i++, j++){//O(n)
-            char temp = str.charAt(index.get(i));
-            char temp2 = str.charAt(index.get(j));
-            sb.deleteCharAt(index.get(i)).replace(index.get(i),index.get(i), String.valueOf(temp2));
-            sb.deleteCharAt(index.get(j)).replace(index.get(j),index.get(j), String.valueOf(temp));
-        }
-        System.out.println(sb);
+        return sb.toString();
     }
 }
