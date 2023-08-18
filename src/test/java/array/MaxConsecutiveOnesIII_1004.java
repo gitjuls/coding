@@ -18,60 +18,30 @@ public class MaxConsecutiveOnesIII_1004 {
     //Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
     public static void main(String[] args) {
-        int[] nums = {0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1};
+        int[] nums = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
         int k = 3;
-
-        //System.out.println(longestOnes(nums, k));
-        System.out.println(longestOnes2(nums, k));
-    }
-
-    public static int longestOnes2(int[] nums, int k) {
-        int left =0;
-        int right =0;
-
-        while(left<nums.length){
-            if(nums[left] == 0) k--;
-            if(k<0){
-                if(nums[right] == 0){
-                    k++;
-                }
-                right++;
-            }
-            left++;
-        }
-         return left-right;
+        System.out.println(longestOnes(nums, k));
     }
 
     public static int longestOnes(int[] nums, int k) {
-        int currSum = 0;
-        int counter = k;
-        int max = 0;
-        int index = -1;
-        for(int i=0; i<nums.length; i++){
-            if(nums[i] == 0 && counter>0){
-                counter--;
-                System.out.println("counter " + counter);
-                if(index==-1){
-                    index = i;
-                    System.out.println("index " + index);
+        if(nums.length==k)return k;
+        int max=0;
+        int temp =0;
+        int l=0;
+        int r=0;
+        while(r<nums.length){
+            if(nums[r]==0){
+                temp++;
+            }
+            while(temp>k){
+                if(nums[l]==0){
+                    temp--;
                 }
+                l++;
             }
-            if(counter==0){
-                     System.out.println("i - currSum " + i + " - " + currSum);
-                currSum=i - currSum;
-                     System.out.println("current Sum " + currSum);
-                counter=k;
-                     System.out.println("counter " + counter);
-                max = Math.max(currSum, max);
-                     System.out.println("max " + max);
-                i = index;
-                     System.out.println("i " + i);
-                index = -1;
-                    System.out.println("index " + index);
-                    System.out.println("--------------------------------");
-            }
+            max=Math.max(r-l+1, max);
+           r++;
         }
-
-        return max+1;
+        return max;
     }
 }
